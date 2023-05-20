@@ -1,10 +1,10 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+import Link from "next/link"
 
 export default function Home() {
   return (
-    
+    <div>
+      <h2>Home Page</h2>
+    </div>
   )
 }
