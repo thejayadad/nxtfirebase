@@ -1,8 +1,10 @@
 
+
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/storage';
+import { initializeApp, getApps } from "firebase/app";
 
 
 
@@ -15,12 +17,13 @@ const firebaseConfig = {
   appId: "1:862940679165:web:dd6b5c4e7946bf34fde794"
 };
 
+let firebase_app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
 
-if(!firebase.getApps.length){
-    firebase.initializeApp(firebaseConfig)
-}
+export default firebase_app;
 
 
 export const auth = firebase.auth();
+export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+
 export const firestore = firebase.firestore();
 export const storage = firebase.storage();
